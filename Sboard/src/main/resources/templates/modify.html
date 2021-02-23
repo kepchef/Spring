@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>글수정</title>
+    <link rel="stylesheet" href="./css/style.css"/>
+</head>
+<body>
+    <div id="wrapper">
+        <section id="board" class="modify">
+            <h3>글수정</h3>
+            <article>
+                <form action="/modify" method="post">
+                	<input type="hidden" name="seq" th:value="${vo.seq}"/>
+                    <table>
+                        <tr>
+                            <td>제목</td>
+                            <td><input type="text" name="title" placeholder="제목을 입력하세요." th:value="${vo.title}" /></td>
+                        </tr>
+                        <tr>
+                            <td>내용</td>
+                            <td>
+                                <textarea name="content">[[${vo.content}]]</textarea>                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>첨부</td>
+                            <td><input type="file" name="fname"/></td>
+                        </tr>
+                    </table>
+                    <div>
+                        <a th:href="@{/view(seq=${vo.seq})}" class="btnCancel">취소</a>
+                        <input type="submit"  class="btnWrite" value="수정완료">
+                    </div>
+                </form>
+            </article>
+        </section>
+    </div>
+</body>
+</html>

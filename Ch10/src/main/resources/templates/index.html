@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>ch10</title>
+	</head>
+	<body>
+		<h3>스프링부트 타임리프 실습하기</h3>
+		
+		<h4>th:text</h4>
+		<p th:text="${title}">title 출력</p>
+		
+		<h4>th:if</h4>
+		<p>
+			<a href="#" th:if="${evo}">로그인</a>
+			<a href="#" th:unless="${evo}">로그아웃</a>		
+		</p>
+		
+		<h4>th:each</h4>
+		<table border="1">
+			<tr th:each="vo:${list}">
+				<td th:text="${vo.uid}">아이디</td>
+				<td th:text="${vo.name}">이름</td>
+			</tr>		
+		</table>
+		
+		<table border="1">
+			<tr th:each="vo:${list}">
+				<td>[[${vo.uid}]]</td>
+				<td>[[${vo.name}]]</td>
+			</tr>		
+		</table>
+	
+	</body>
+</html>

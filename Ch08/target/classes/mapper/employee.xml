@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.employee">
+
+	<insert id="INSERT_EMPLOYEE">
+		INSERT INTO `Employee` VALUES (#{uid}, #{name}, #{gender}, #{hp}, #{email}, #{pos}, #{dep}, NOW());  
+	</insert>
+		
+	<select id="SELECT_EMPLOYEES" resultType="kr.co.ch08.vo.EmployeeVo">
+		SELECT * FROM `Employee`;
+	</select>
+	
+	<delete id="DELETE_EMPLOYEE">
+		DELETE FROM `Employee` WHERE `uid`=#{uid};
+	</delete>
+	
+
+
+</mapper>
